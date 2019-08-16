@@ -9,7 +9,8 @@ class Loading extends Component {
         super(props);
 
         this.state = {
-            isLoading: null
+            isLoaded: false,
+            isLoading: false
         }
 
     }
