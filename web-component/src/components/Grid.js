@@ -7,17 +7,45 @@ class Grid extends Component {
     {
         super(props);
 
+
         this.state = {
             items: this.props.items,
         }
+
+    }
+
+    buildGridItems()
+    {
+
+        var html;
+
+        for(var i = 0; i < this.state.items.length; i++){
+            html += <div></div>
+        }
+
+        return html;
+
     }
 
     render() {
-        return (
-            <div>
-                
-            </div>
-        );
+
+        if(this.state.items && this.state.items.length){
+            return (
+                <div>
+                    {this.buildGridItems}
+                </div>
+            );
+        }
+
+        else {
+            return (
+                <div>
+                    Sem dados
+                </div>
+            );
+        }
+
+        
     }
 }
 

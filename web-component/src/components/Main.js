@@ -13,7 +13,7 @@ class Main extends Component {
         this.state = {
             isLoaded: false,
             isLoading: false,
-            items: [],
+            items: null,
         }
     }
 
@@ -44,7 +44,7 @@ class Main extends Component {
                 this.setState({
                     isLoaded: true,
                     isLoading: false,
-                    items:  error
+                    items:  false
                 });
             }
         )
@@ -53,12 +53,13 @@ class Main extends Component {
 
 
     render() {
+
+        console.log(this.state.items)
+
         return (
             <div>
                 <button type="button" className="btn" onClick={this.getData.bind(this)}>GET</button>
-
                 <Grid items={this.state.items}></Grid>
-
             </div>
                 
         );
