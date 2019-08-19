@@ -1,55 +1,29 @@
 import React, { Component } from 'react';
 
 class Grid extends Component {
-
-
-    constructor(props)
-    {
-        super(props);
-
-
-        this.state = {
-            items: this.props.items,
-        }
-
-    }
-
-    buildGridItems()
-    {
-
-        var html;
-
-        for(var i = 0; i < this.state.items.length; i++){
-            html += <div></div>
-        }
-
-        return html;
-
-    }
-
     render() {
-
-        if(this.state.items && this.state.items.length){
+        console.log(this.props.items);
+        if (this.props.items){
             return (
-                <div>
-                    {this.buildGridItems}
-                </div>
+                <>
+                {this.props.items.map((item) => {
+                    return (
+                        <div key={item.id}>
+                            {item.name}
+                        </div>
+                    );
+                })}
+                </>
             );
         }
-
-        else {
-            return (
-                <div>
-                    Sem dados
-                </div>
-            );
-        }
+        return (
+            <div>
+                Sem dados
+            </div>
+        );
 
         
     }
 }
-
-
-
 
 export default Grid;
